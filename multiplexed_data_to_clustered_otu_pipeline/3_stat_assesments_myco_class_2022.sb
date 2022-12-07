@@ -1,0 +1,32 @@
+#!/bin/bash -login
+
+##################################
+#     Bioinformatic pipeline     #
+#     ITS amplicon sequences	 #
+#       Course PLP847 2018	 #
+# 	Advanced Mycology	 #
+#     ----------------------     #
+#         stat results  	 #
+#                                #
+#      Gian MN Benucci, PhD      #
+#        benucci@msu.edu	 #
+#    Michigan State University   #
+##################################
+ 
+#SBATCH --time=00:30:00					### limit of wall clock time - how long the job will run (same as -t)
+#SBATCH --ntasks=1					### number of tasks - how many tasks (nodes) that you require (same as -n)
+#SBATCH --cpus-per-task=10				### number of CPUs (or cores) per task (same as -c)
+#SBATCH --mem=8G					### memory required per node - amount of memory (in bytes)
+#SBATCH --job-name prefiltering				### you can give your job a name for easier identification (same as -J)
+
+cd ${SLURM_SUBMIT_DIR}
+
+
+mkdir stats
+# this step checks distribution of lengths and quality scores 
+/mnt/research/rdp/public/thirdParty/usearch10.0.240_i86linux64 -fastq_stats stripped/stripped2_R1.fastq -log stats/stats_results_R1.txt
+# use stats_eestats2_R1.txt file to check distributions, will not be trimming based off length so only need to check error categoreies. Keep maximum reads at an error you are comfortable with 
+/mnt/research/rdp/public/thirdParty/usearch10.0.240_i86linux64 -fastq_eestats2 stripped/stripped2_R1.fastq -output stats/stats_eestats2_R1.txt -length_cutoffs 100,500,1
+/mnt/research/rdp/public/thirdParty/usearch10.0.240_i86linux64 -fastx_info stripped/stripped2_R1.fastq -secs 5 -output stats/stats_fastxinfo_R1.txt
+
+

@@ -1,0 +1,40 @@
+#!/bin/bash -login
+
+##################################
+#     Bioinformatic pipeline     #
+#     ITS amplicon sequences	 #
+#       Course PLP847 2018	 #
+# 	Advanced Mycology	 #
+#     ----------------------     #
+#    filtering and trimming      #
+#                                #
+#      Gian MN Benucci, PhD      #
+#        benucci@msu.edu	 #
+#    Michigan State University   #
+##################################
+
+#SBATCH --time=02:00:00					### limit of wall clock time - how long the job will run (same as -t)
+#SBATCH --ntasks=1					### number of tasks - how many tasks (nodes) that you require (same as -n)
+#SBATCH --cpus-per-task=10				### number of CPUs (or cores) per task (same as -c)
+#SBATCH --mem=16G					### memory required per node - amount of memory (in bytes)
+#SBATCH --job-name prefiltering				### you can give your job a name for easier identification (same as -J)
+
+cd ${SLURM_SUBMIT_DIR}
+
+module load FastQC/0.11.7-Java-1.8.0_162
+
+mkdir filtered/
+# This step will trim at an expected error rate of 0.5%, I typically don't go higher than 1.0%. 
+/mnt/research/rdp/public/thirdParty/usearch10.0.240_i86linux64 -fastq_filter stripped/stripped2_R1.fastq -fastq_maxee 0.5 -fastq_maxns 0 -fastaout filtered/filtered_R1.fasta -fastqout filtered/filtered_R1.fastq
+
+
+
+
+
+for fasta in filtered/*trimmed*.fasta
+do echo "$fasta : `grep -c "^>" $fasta`"
+done > stats/reads_trimmed.counts
+
+fastqc ./filtered/trimmed_R1.fastq
+
+

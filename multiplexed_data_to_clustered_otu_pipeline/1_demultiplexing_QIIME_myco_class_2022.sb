@@ -1,0 +1,43 @@
+#!/bin/bash -login
+
+##################################
+#     Bioinformatic pipeline     #
+#     ITS amplicon sequences	 #
+#       Course PLP847 2018	 #
+# 	Advanced Mycology	 #
+#     ----------------------     #
+#        demultiplexing		 #
+#                                #
+#      Gian MN Benucci, PhD      #
+#        benucci@msu.edu	 #
+#    Michigan State University   #
+##################################
+ 
+#SBATCH --time=16:00:00					### limit of wall clock time - how long the job will run (same as -t)
+#SBATCH --ntasks=2					### number of tasks - how many tasks (nodes) that you require (same as -n)
+#SBATCH --cpus-per-task=10				### number of CPUs (or cores) per task (same as -c)
+#SBATCH --mem=16G					### memory required per node - amount of memory (in bytes)
+#SBATCH --job-name prefiltering				### you can give your job a name for easier identification (same as -J)
+
+cd ${SLURM_SUBMIT_DIR}
+
+mkdir demultiplexed 
+
+
+conda activate qiime1
+
+# check the mapping file to make all categories and values are valid for qiime see here:http://qiime.org/documentation/file_formats.html
+# will need to replace file names with the names of your own files
+validate_mapping_file.py -m Hub_Inocula_Fungi_map.txt -o mapping_output
+# again replace with your own file names,put raw reads into a folder labelled raw_reads. demultiplexed data will be placed into folder named demultiplexed (created above) 
+split_libraries_fastq.py -i raw_reads/*_R1_001.fastq.gz -m Hub_Inocula_Fungi_map.txt -b raw_reads/*_I1_001.fastq.gz --store_qual_scores --store_demultiplexed_fastq --barcode_type 10 -o demultiplexed/splitted_R1/ --rev_comp_mapping_barcodes -q 19 --max_barcode_errors 0
+
+conda deactivate
+
+sed '/^>/s/_/\./g' "demultiplexed/splitted_R1/seqs.fna" > "demultiplexed/splitted_R1/seqs_new_R1.fasta"
+
+
+sed '/^@/s/_/\./g' "demultiplexed/splitted_R1/seqs.fastq" > "demultiplexed/splitted_R1/seqs_new_R1.fastq"
+
+
+

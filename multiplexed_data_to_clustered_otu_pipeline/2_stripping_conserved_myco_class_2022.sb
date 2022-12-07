@@ -1,0 +1,44 @@
+#!/bin/bash -login
+
+##################################
+#     Bioinformatic pipeline     #
+#     ITS amplicon sequences	 #
+#       Course PLP847 2022	 #
+# 	Advanced Mycology	 #
+#     ----------------------     #
+#                                #
+#                                #
+#      Reid Longley, PhD         #
+#                       	 #
+#    Michigan State University   #
+##################################
+
+ 
+#SBATCH --time=03:30:00			### limit of wall clock time - how long the job will run (same as -t)
+#SBATCH --ntasks=1			### number of tasks - how many tasks (nodes) that you require (same as -n)
+#SBATCH --cpus-per-task=10		### number of CPUs (or cores) per task (same as -c)
+#SBATCH --mem=16G			### memory required per node - amount of memory (in bytes)
+#SBATCH --job-name prefiltering		### you can give your job a name for easier identification (same as -J)
+
+cd ${SLURM_SUBMIT_DIR}
+
+mkdir stripped/
+
+conda activate cutadapt
+# This first step is trimming the reads at the SSU and 5.8S regions - this has two areas that can be adjusted. The -e paramater is the error in matching the seq, I have found this value works well.
+# The - m value is the minimum read length, can be adjusted to retain more or less short reads. This step will only retain reads where both regions were trimmed.Use an alignment to check for 5.8S and LSU sequences to trim
+cutadapt -g CCTGCGGAAGGATCATT...AACTTTCAACAACGGATCT  -e .15  -f fastq -m 60  --discard-untrimmed --match-read-wildcards demultiplexed/splitted_R1/seqs_new_R1.fastq > stripped/stripped1_R1.fastq
+
+# This second step removes any reads that still have primers attached as these should be discarded as they are chimeras or some other artifact
+cutadapt -g CTTGGTCATTTAGAGGAAGTAA -e 0.01 --discard-trimmed --match-read-wildcards stripped/stripped1_R1.fastq > stripped/stripped2_R1.fastq
+conda deactivate
+
+for fastq in stripped/*stripped*.fastq                                                                           
+do echo "$fastq : `grep -c "^+$" $fastq`" 
+done > stats/reads_stripped.counts
+
+
+# -n trimming more than one adapter each read
+# -e expected error rate (default 10%)
+# --discard-untrimmed discards the pair if one of the reads does not contain an adapter
+# --match-read-wildcards All IUPAC nucleotide codes (wildcard characters) are supported

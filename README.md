@@ -12,8 +12,9 @@ In this project we work on:
   -If you see a label in a mappingfile labelled "bar_label" that is a mix of the management system and growth stage in some form.
   
 
-#I would love to ask if anyone associated with this repository/ project would organize their uploads.
-  We can follow the following methods for naming
+I would love to ask if anyone associated with this repository/ project would organize their uploads.
+ 
+ We can follow the following methods for naming:
   
   1) R files (save where the name applies): <crop>_<year>_<origin>_<your initials>_<DAY.MONTH.YEAR.AM OR PM>.R
     
@@ -40,4 +41,4 @@ In this project we work on:
       ex) 2022/stems/working_codes -OR we can do- 2022/working_codes
      
      
-As time goes on, we can find what works for us to share things. Between us collaborators, the MSU HPCC (a great way to combine files and download to upload here), and pushing things from Rstudio to here without having to download, we should be good!
+As time goes on, we can find what works for us to share things. Between us collaborators, the MSU HPCC (a great way to combine files and download to upload here), and pushing things from Rstudio to here without having to download, we should be good!!!

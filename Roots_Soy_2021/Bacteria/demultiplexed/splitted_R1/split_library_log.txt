@@ -1,0 +1,130 @@
+Input file paths
+Mapping filepath: ./raw_reads/root_bac_map_soybean_2021.txt (md5: 42562aaa73289b166d8e9286c0dee0a1)
+Sequence read filepath: ./raw_reads/forward.fastq (md5: dff1970d1fac222fbeed275b8454d454)
+Barcode read filepath: ./raw_reads/barcodes.fastq (md5: c4f698329a7b6012dbf2150acf23f66f)
+
+Quality filter results
+Total number of input sequences: 17144712
+Barcode not in mapping file: 2576744
+Read too short after quality truncation: 493258
+Count of N characters exceeds limit: 3228
+Illumina quality digit = 0: 0
+Barcode errors exceed max: 0
+
+Result summary (after quality filtering)
+Median sequence length: 300.00
+V2T1r5Broot	264370
+V2T4r6Croot	257050
+V2T1r1Aroot	253701
+V2T2r5Aroot	238622
+V2T1r5Aroot	231887
+V2T1r1Broot	226775
+R6T1r2Croot	222902
+R6T2r5Croot	215531
+V2T4r5Broot	209934
+V2T1r2Broot	207703
+R6T2r5Broot	207369
+R6T4r1Aroot	202724
+R3T1r1Broot	199348
+V2T2r2Aroot	194023
+R3T4r2Aroot	192395
+V2T4r1Croot	191101
+R3T4r1Croot	190952
+R6T1r2Broot	187216
+R6T2r1Croot	185109
+R6T4r5Broot	184880
+R3T1r6Aroot	182979
+V2T1r2Aroot	180737
+V2T1r2Croot	178137
+V2T1r5Croot	175989
+R6T1r1Croot	174432
+R6T1r5Broot	173274
+V2T2r6Aroot	172574
+R6T2r5Aroot	171572
+R3T1r2Aroot	171128
+R3T1r5Croot	170890
+R6T1r2Aroot	168382
+V2T2r1Broot	164679
+R6T2r6Aroot	164480
+R3T1r5Aroot	160350
+R3T1r5Broot	160044
+V2T2r2Croot	152762
+R3T2r6Broot	151598
+R3T2r2Croot	151301
+R6T2r2Aroot	149971
+R3T2r2Aroot	147059
+V2T1r6Croot	143603
+R6T2r2Croot	142431
+R3T1r1Croot	142272
+V2T4r5Aroot	141493
+V2T1r6Broot	141139
+R3T1r1Aroot	140269
+V2T4r5Croot	138948
+R6T2r1Aroot	138532
+V2T4r2Aroot	138363
+R6T2r6Croot	137776
+V2T2r6Croot	135908
+V2T4r6Aroot	133252
+V2T1r6Aroot	131508
+R3T2r6Aroot	130053
+V2T1r1Croot	129825
+R3T4r1Aroot	129817
+R3T4r5Aroot	129385
+R6T2r1Broot	128380
+R3T4r1Broot	128242
+R3T1r6Croot	128102
+R3T2r5Croot	124609
+V2T2r5Croot	123581
+V2T2r6Broot	122516
+R3T2r2Broot	119983
+V2T2r5Broot	118551
+R3T2r1Croot	116121
+R3T1r6Broot	113701
+R6T2r6Broot	113578
+V2T2r2Broot	113489
+V2T2r1Croot	113071
+R3T2r5Aroot	111705
+V2T4r1Aroot	111639
+R3T2r5Broot	110359
+V2T4r2Croot	109377
+V2T4r2Broot	109149
+R6T1r6Broot	106335
+R3T4r6Croot	104467
+R3T2r6Croot	101853
+V2T2r1Aroot	101629
+R6T1r1Aroot	100661
+R3T4r6Aroot	100554
+V2T4r6Broot	98037
+R3T1r2Croot	97804
+R3T2r1Aroot	97626
+R3T4r2Croot	97500
+V2T4r1Broot	94658
+R6T1r5Croot	93870
+R3T4r5Croot	90614
+R3T4r6Broot	88264
+R3T1r2Broot	85467
+R3T4r5Broot	79848
+R6T1r1Broot	77213
+R3T2r1Broot	74441
+R6T1r5Aroot	73074
+R6T1r6Croot	70207
+R6T2r2Broot	65609
+R3T4r2Broot	61660
+R6T1r6Aroot	41546
+R6T4r5Croot	39781
+NC1root	1142
+R6T4r6Aroot	961
+R6T4r1Broot	2
+R6T4r6Broot	1
+R6T4r2Broot	1
+R6T4r6Croot	0
+R6T4r5Aroot	0
+R6T4r2Croot	0
+R6T4r2Aroot	0
+R6T4r1Croot	0
+PC1root	0
+NC2root	0
+
+Total number seqs written	14071482
+---
+

@@ -1,0 +1,23 @@
+	primary_guilds_unique	primary_guild_counts	primary_guild_percent	secondary_guild_unique	secondary_guild_counts	secondary_guild_percentage
+Organic	#N/A	736	34.6	#N/A	1353	63.6
+Organic	soil_saprotroph	95	4.5	animal_decomposer	22	1
+Organic	animal_parasite	32	1.5	litter_saprotroph	292	13.7
+Organic	plant_pathogen	459	21.6	epiphyte	9	0.4
+Organic	unspecified_saprotroph	109	5.1	fungal_decomposer	25	1.2
+Organic	mycoparasite	34	1.6	plant_pathogen	49	2.3
+Organic	epiphyte	26	1.2	foliar_endophyte	228	10.7
+Organic	litter_saprotroph	380	17.9	wood_saprotroph	65	3.1
+Organic	wood_saprotroph	182	8.6	unsepcified_saprotroph	6	0.3
+Organic	sooty_mold	2	0.1	root-associated	37	1.7
+Organic	lichen_parasite	2	0.1	animal_parasite	14	0.7
+Organic	dung_saprotroph	22	1	algal_parasite	2	0.1
+Organic	foliar_endophyte	6	0.3	soil_saprotroph	5	0.2
+Organic	ectomycorrhizal	4	0.2	rock-inhabiting	8	0.4
+Organic	root_endophyte	2	0.1	nematophagous	1	0
+Organic	lichenized	4	0.2	dung_saprotroph	3	0.1
+Organic	nectar/tap_saprotroph	6	0.3	coral-associated	2	0.1
+Organic	arbuscular_mycorrhizal	26	1.2	root_endophyte_dark_septate	1	0
+Organic	pollen_saprotroph	1	0	nectar/tap_saprotroph	2	0.1
+Organic		2128		sooty_mold	2	0.1
+Organic				root_endophyte	1	0
+Organic				ericoid_mycorrhizal	1	0
